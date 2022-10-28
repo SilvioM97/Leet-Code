@@ -1,7 +1,7 @@
 //At the moment of submission (24/09/22):
 /*
 Runtime: 0 ms, faster than 100.00% of Rust online submissions for Palindrome Number.
-Memory Usage: 1.9 MB, less than 74.90% of Rust online submissions for Palindrome Number.
+Memory Usage: 2.3 MB, less than 74.90% of Rust online submissions for Palindrome Number.
 */
 
 impl Solution {
