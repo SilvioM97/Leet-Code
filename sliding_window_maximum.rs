@@ -1,5 +1,6 @@
 //This solution uses a deque (double ended queue) and it is linear (O(n) worst case)
 
+//At the moment of submission (19/10/22):
 /*
 Runtime: 62 ms, faster than 99.27% of Rust online submissions for Palindrome Number.
 Memory Usage: 4.3 MB, less than 28.73% of Rust online submissions for Palindrome Number.
