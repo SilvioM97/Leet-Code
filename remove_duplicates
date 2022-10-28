@@ -1,0 +1,26 @@
+//At the moment of submission (24/09/22):
+/*
+Runtime: 0 ms, faster than 100.00% of Rust online submissions for Palindrome Number.
+Memory Usage: 1.9 MB, less than 74.90% of Rust online submissions for Palindrome Number.
+*/
+
+impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        let mut k = 0;
+        let mut u = 0;
+        let mut d = 1;
+        while (d < nums.len()) {
+            if (nums[u] == nums[d]) {
+                d = d+1;
+                k = k+1;   
+            }
+            else {
+                u = u + 1;
+                nums[u] = nums[d];
+                d = d + 1;
+            }
+        }
+
+        return ((nums.len() as i32) -k);
+    }
+}
