@@ -1,0 +1,41 @@
+//At the moment of submission (30/10/22):
+/*
+Runtime: 2 ms, faster than 96.61% of Rust online submissions for Binary Search.
+Memory Usage: 2.3 MB, less than 42.32% of Rust online submissions for Binary Search.
+*/
+
+impl Solution {
+    pub fn search(nums: Vec<i32>, target: i32) -> i32 {   
+                
+        if nums.len() < 4 {
+            for j in 0..nums.len() {
+                if nums[j] == target {
+                    return j as i32;
+                }
+            }
+        }
+        else {        
+            let mut s: usize = 0;
+            let mut d = nums.len()-1;
+            let mut i: usize = d/2;
+
+            while s < d {
+                if nums[i] == target {
+                    return i as i32;
+                }
+                else if target > nums[i] {
+                    s = std::cmp::min(i+1,d);
+                    i = (s + d)/2;
+                }
+                else {
+                    d = std::cmp::max(s,i-1);
+                    i = (d + s)/2;
+                }
+            }
+            if target == nums[s] {
+                return s as i32;
+            }            
+        }
+        return -1; 
+    }
+}
