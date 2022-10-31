@@ -1,0 +1,18 @@
+//Solved with bit manipulation, no loops/recursion
+
+//At the moment of submission (31/10/22):
+/*
+Runtime: 0 ms, faster than 100.00% of Rust online submissions for Power of Two.
+Memory Usage: 2.1 MB, less than 69.81% of Rust online submissions for Power of Two.
+*/
+
+impl Solution {
+    pub fn is_power_of_two(n: i32) -> bool {
+        if n < 0 {
+            return false;
+        }
+        else {
+            return (n.count_ones() == 1)
+        }
+    }
+}
