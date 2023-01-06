@@ -1,0 +1,34 @@
+//At the moment of submission (06/01/22):
+/*
+Runtime: 7 ms, faster than 50.21% of Rust online submissions.
+Memory Usage: 2 MB, less than 68.29% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn roman_to_int(s: String) -> i32 {
+        let mut num: i32 = 0;
+        let mut s_numeric = vec![0; s.len()];
+        for (i, c) in s.chars().enumerate() { 
+            match c {
+                'M' => s_numeric[i] = 1000,
+                'D' => s_numeric[i] = 500,
+                'C' => s_numeric[i] = 100,
+                'L' => s_numeric[i] = 50,
+                'X' => s_numeric[i] = 10,
+                'V' => s_numeric[i] = 5,
+                'I' => s_numeric[i] = 1,
+                _ => num += 0,
+                }
+        }
+        for i in 0..(s_numeric.len()-1) {
+            if s_numeric[i] < s_numeric[i+1] {
+                num -= s_numeric[i];
+            }
+            else {
+                num += s_numeric[i];
+            }
+        }
+        num += s_numeric[s_numeric.len()-1];
+        return num;
+    }
+}
