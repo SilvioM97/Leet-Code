@@ -1,0 +1,25 @@
+//At the moment of submission (06/01/23):
+/*
+Runtime: 0 ms, faster than 100% of Rust online submissions.
+Memory Usage: 2 MB, less than 67,65% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn average(salary: Vec<i32>) -> f64 {
+        let mut min: i32 = salary[0];
+        let mut max: i32 = salary[0];
+        let mut avg: f64 = 0.0;
+
+        for i in 0..salary.len() {
+            avg += salary[i] as f64;
+            if salary[i] < min {
+                min = salary[i];
+            }
+            if salary[i] > max {
+                max = salary[i];
+            }
+        }
+
+        return (avg - (min as f64) - (max as f64))/((salary.len()-2) as f64);
+    }
+}
