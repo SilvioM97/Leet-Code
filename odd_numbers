@@ -1,0 +1,11 @@
+//At the moment of submission (06/01/23):
+/*
+Runtime: 0 ms, faster than 100% of Rust online submissions.
+Memory Usage: 2 MB, less than 62,86% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn count_odds(low: i32, high: i32) -> i32 {
+        return (high/2 - low/2 + high%2);
+    }
+}
