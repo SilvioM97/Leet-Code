@@ -1,0 +1,18 @@
+//At the moment of submission (07/01/23):
+/*
+Runtime: 1 ms, faster than 74,68% of Rust online submissions.
+Memory Usage: 2 MB, less than 60,76% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn subtract_product_and_sum(mut n: i32) -> i32 {
+        let mut prod: i32 = 1;
+        let mut sum: i32 = 0;
+        while n > 0 {
+            prod *= n%10;
+            sum += n%10;
+            n = (n - n%10)/10;
+        }
+        return prod - sum;
+    }
+}
