@@ -1,0 +1,21 @@
+//At the moment of submission (06/01/23):
+/*
+Runtime: 7 ms, faster than 95% of Rust online submissions.
+Memory Usage: 2.1 MB, less than 100% of Rust online submissions.
+
+Runtime 2: 3 ms, faster than 100% of Rust online submissions.
+Memory Usage: 2.2 MB, less than 80% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn largest_perimeter(mut nums: Vec<i32>) -> i32 {
+        nums.sort_unstable();
+
+        for i in (2..nums.len()).rev() {
+            if nums[i-2] + nums[i-1] > nums[i] {
+                return nums[i-2] + nums[i-1] + nums[i];
+            }
+        }
+        return 0;
+    }
+}
