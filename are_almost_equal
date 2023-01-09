@@ -1,0 +1,37 @@
+//At the moment of submission (09/01/23):
+/*
+Runtime: 1 ms, faster than 75% of Rust online submissions.
+Memory Usage: 2 MB, less than 92,86% of Rust online submissions.
+*/
+
+impl Solution {
+    pub fn are_almost_equal(s1: String, s2: String) -> bool {
+        let mut count: i32 = 0;
+        let mut p1: char = 'A';
+        let mut q1: char = 'A';
+        for it in s1.chars().zip(s2.chars()) {
+            let (c1,c2) = it;
+            if c1 != c2 {
+                count += 1;
+                if count > 2 {
+                   return false;
+                }
+                else if count == 1 {
+                    p1 = c1;
+                    q1 = c2;
+                }
+                else if count == 2 {
+                    if c1 != q1 || c2 != p1 {
+                        return false;
+                    }
+                }
+            }
+        } 
+        if count == 1 {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+}
