@@ -1,12 +1,16 @@
 //Solved without hash tables
 //At the moment of submission (09/01/23):
 /*
-Runtime: 1 ms, faster than 75% of Rust online submissions.
+Runtime: 0 ms, faster than 100% of Rust online submissions.
 Memory Usage: 2 MB, less than 92,86% of Rust online submissions.
 */
 
 impl Solution {
     pub fn are_almost_equal(s1: String, s2: String) -> bool {
+        if s1 == s2 {
+            return true;
+        }
+        
         let mut count: i32 = 0;
         let mut p1: char = 'A';
         let mut q1: char = 'A';
