@@ -1,0 +1,31 @@
+//At the moment of submission (09/01/23):
+/*
+Runtime: 0 ms, faster than 100% of Rust online submissions.
+Memory Usage: 2 MB, less than 77.44% of Rust online submissions.
+*/
+
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn is_happy(mut n: i32) -> bool {
+        let mut temp: i32 = 0;
+        let mut tab = HashMap::new(); //Hash table
+        tab.insert(n, 0);
+        for i in 0..100 {
+            while n > 0 {
+                temp += (n%10)*(n%10);
+                n = (n - n%10)/10;
+            }
+            if temp == 1 {
+                return true;
+            }
+            if tab.contains_key(&temp) {
+                return false;
+            }
+            tab.insert(temp, i);
+            n = temp;
+            temp = 0;
+        }
+        return false;
+    }
+}
