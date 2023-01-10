@@ -1,0 +1,31 @@
+//At the moment of submission (10/01/23):
+/*
+Runtime: 1 ms, faster than 78,95% of Rust online submissions.
+Memory Usage: 2.1 MB, less than 91,23% of Rust online submissions.
+*/
+
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+        let mut res: Vec<i32> = vec![-1; nums1.len()];
+        let mut tab = HashMap::with_capacity(nums2.len());
+        for i in 0..nums2.len() {
+            tab.insert(nums2[i], i);
+        }
+
+        for i in 0..nums1.len() {
+            let j = tab.insert(nums1[i], i).unwrap();
+            if j != nums2.len()-1 {
+                let mut k = j + 1; 
+                while k < nums2.len() && nums2[k] <= nums2[j] {
+                    k = k + 1;
+                }
+                if k < nums2.len() {
+                    res[i] = nums2[k];
+                }
+            }  
+        }
+        return res;
+    }
+}
